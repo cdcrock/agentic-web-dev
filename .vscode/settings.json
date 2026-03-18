@@ -1,0 +1,11 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "gh": true,
+        "git switch": true,
+        "java": true,
+        "true": true,
+        "ng": true,
+        "npm install": true,
+        "mkdir": true
+    }
+}
