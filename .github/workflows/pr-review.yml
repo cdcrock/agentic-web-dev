@@ -30,7 +30,7 @@ jobs:
               }
             );
 
-            const reviewBody = '@github-copilot review';
+            const reviewBody = '@copilot review';
             const lastComment = comments[comments.length - 1];
             if (lastComment && lastComment.body.trim() === reviewBody) {
               console.log('Review already requested; skipping duplicate comment.');
