@@ -33,6 +33,14 @@ EOF
 
 launch_frontend() {
   echo "Launching frontend..."
+  if [ ! -d "$FRONTEND_DIR/node_modules" ]; then
+    echo "Frontend dependencies not found (missing node_modules)."
+    echo "Installing npm dependencies in '$FRONTEND_DIR'..."
+    if ! (cd "$FRONTEND_DIR" && npm install); then
+      echo "Error: npm install failed. Please fix the issues above and re-run the dev script."
+      return 1
+    fi
+  fi
   open_service_tab "cd '$FRONTEND_DIR' && ng serve" "frontend"
 }
 
