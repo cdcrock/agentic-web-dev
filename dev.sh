@@ -48,7 +48,8 @@ tell application "Terminal"
   set tabList to {}
   repeat with w in (every window)
     repeat with t in (every tab of w)
-      if (custom title of t) starts with "$TAB_PREFIX" then
+      set tabTitle to (custom title of t)
+      if tabTitle is not missing value and tabTitle starts with "$TAB_PREFIX" then
         set end of tabList to t
       end if
     end repeat
