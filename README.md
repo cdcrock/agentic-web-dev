@@ -13,8 +13,6 @@ agentic-web-dev/
 │   │   │   │   ├── AppApplication.java   # Entry point
 │   │   │   │   ├── controller/           # REST controllers
 │   │   │   │   ├── service/              # Business logic
-│   │   │   │   ├── repository/           # Data access
-│   │   │   │   ├── model/                # Entities / DTOs
 │   │   │   │   └── config/               # Spring configuration
 │   │   │   └── resources/
 │   │   │       └── application.yml       # App configuration
