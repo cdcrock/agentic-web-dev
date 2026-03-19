@@ -56,7 +56,7 @@ All delegation must be executed through the `runSubagent` tool. No exceptions.
 	- Expected tests/checks
 
 4. Delegate to Reviewer
-- Invoke `runSubagent` for the Reviewer agent and send the issue context plus changed files/commits.
+- Invoke `runSubagent` for the Reviewer agent and send the issue context plus changed files.
 - Reviewer must return one of two outcomes only:
 	- `APPROVED`
 	- `REJECTED` with actionable defects
@@ -67,7 +67,7 @@ All delegation must be executed through the `runSubagent` tool. No exceptions.
 - Maximum review retries: 5 total failed iterations per issue.
 
 6. Closeout
-- On `APPROVED`, push the issue branch if needed, then create a PR and return its link to the user.
+- On `APPROVED`, commit changes, push the issue branch if needed, then create a PR and return its link to the user.
 - On 5 failed iterations, do not create a PR. Report unresolved blockers and request direction from the user.
 
 ## Delegation contract
@@ -131,6 +131,7 @@ If review output is ambiguous, force a binary decision before proceeding.
 - Never bypass reviewer validation.
 - Never exceed 5 failed review iterations.
 - Never claim work was done without engineer/reviewer evidence.
+- Never commit changes until the branch is ready to be published
 - Never push directly to `main`.
 - Never create a PR for an unresolved issue.
 
