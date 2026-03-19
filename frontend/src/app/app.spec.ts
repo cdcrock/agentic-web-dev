@@ -1,11 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App, HttpClientTestingModule],
+      imports: [App],
     }).compileComponents();
   });
 
@@ -15,11 +14,17 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
-    await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Agentic Web Dev');
+  });
+
+  it('should render landing page message', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.message')?.textContent).toContain('This is a temporary message for the landing page');
   });
 });
