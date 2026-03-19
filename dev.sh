@@ -53,18 +53,19 @@ shutdown_all() {
   echo "Shutting down all service tabs..."
   osascript <<EOF
 tell application "Terminal"
-  set tabList to {}
+  set winList to {}
   repeat with w in (every window)
     repeat with t in (every tab of w)
       set tabTitle to (custom title of t)
       if tabTitle is not missing value and tabTitle starts with "$TAB_PREFIX" then
-        set end of tabList to t
+        set end of winList to w
+        exit repeat
       end if
     end repeat
   end repeat
-  repeat with t in reverse of tabList
+  repeat with w in reverse of winList
     try
-      close t
+      close w
     end try
   end repeat
 end tell
