@@ -17,16 +17,16 @@ escape_for_applescript() {
 
 open_service_tab() {
   local cmd="$1"
-  local tab_title="${TAB_PREFIX}-$2"
+  local win_title="${TAB_PREFIX}-$2"
   local escaped_cmd
-  local escaped_tab_title
+  local escaped_win_title
   escaped_cmd=$(escape_for_applescript "$cmd")
-  escaped_tab_title=$(escape_for_applescript "$tab_title")
+  escaped_win_title=$(escape_for_applescript "$win_title")
   osascript <<EOF
 tell application "Terminal"
   activate
-  set newTab to do script "$escaped_cmd" in window 1
-  set custom title of newTab to "$escaped_tab_title"
+  set newTab to do script "$escaped_cmd"
+  set custom title of newTab to "$escaped_win_title"
 end tell
 EOF
 }
@@ -53,18 +53,19 @@ shutdown_all() {
   echo "Shutting down all service tabs..."
   osascript <<EOF
 tell application "Terminal"
-  set tabList to {}
+  set winList to {}
   repeat with w in (every window)
     repeat with t in (every tab of w)
       set tabTitle to (custom title of t)
       if tabTitle is not missing value and tabTitle starts with "$TAB_PREFIX" then
-        set end of tabList to t
+        set end of winList to w
+        exit repeat
       end if
     end repeat
   end repeat
-  repeat with t in reverse of tabList
+  repeat with w in reverse of winList
     try
-      close t
+      close w
     end try
   end repeat
 end tell
@@ -85,6 +86,18 @@ show_menu() {
   echo "============================="
   printf "Select option: "
 }
+
+# If running inside VS Code's integrated terminal, re-launch this script in Terminal.app
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  escaped_script=$(escape_for_applescript "$SCRIPT_DIR/dev.sh")
+  osascript <<APPLESCRIPT
+tell application "Terminal"
+  activate
+  do script "bash '$escaped_script'"
+end tell
+APPLESCRIPT
+  exit 0
+fi
 
 echo "Starting development environment..."
 launch_frontend
