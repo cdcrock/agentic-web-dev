@@ -58,6 +58,7 @@ Before validating, detect available scripts/tools from project files and run onl
 4. Validate with tooling
 - Run relevant tests and static checks that exist in the repo.
 - If no suitable automated checks exist, explicitly state the gap and rely on deterministic code-path reasoning.
+- Do not evaluate if the changes have been committed. The lead will handle this.
 
 5. Decide and report
 - Return exactly one decision: `APPROVED` or `REJECTED`.
