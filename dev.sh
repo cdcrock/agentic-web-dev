@@ -5,14 +5,28 @@ FRONTEND_DIR="$SCRIPT_DIR/frontend"
 BACKEND_DIR="$SCRIPT_DIR/backend"
 TAB_PREFIX="dev-script"
 
+escape_for_applescript() {
+  local input=$1
+  # Escape backslashes and double quotes for safe inclusion in an AppleScript string literal
+  input=${input//\\/\\\\}
+  input=${input//\"/\\\"}
+  # Optionally normalize newlines to \n sequences
+  input=${input//$'\n'/\\n}
+  printf '%s' "$input"
+}
+
 open_service_tab() {
   local cmd="$1"
   local tab_title="${TAB_PREFIX}-$2"
+  local escaped_cmd
+  local escaped_tab_title
+  escaped_cmd=$(escape_for_applescript "$cmd")
+  escaped_tab_title=$(escape_for_applescript "$tab_title")
   osascript <<EOF
 tell application "Terminal"
   activate
-  set newTab to do script "$cmd" in window 1
-  set custom title of newTab to "$tab_title"
+  set newTab to do script "$escaped_cmd" in window 1
+  set custom title of newTab to "$escaped_tab_title"
 end tell
 EOF
 }
