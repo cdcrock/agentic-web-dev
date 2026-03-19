@@ -138,6 +138,7 @@ If review output is ambiguous, force a binary decision before proceeding.
 
 - One issue per branch/PR unless user explicitly requests batching.
 - Branch naming should be issue-specific (for example: `issue-<number>-<short-slug>`).
+- Ensure changes are committed to the issue branch before pushing or creating a PR.
 - Push only the issue branch to origin; do not push `main`.
 - PR must reference the issue (for example: `Closes #<number>` when appropriate).
 - PR description must include:
