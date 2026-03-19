@@ -44,7 +44,7 @@ agentic-web-dev/
 | JDK  | 21      |
 | Maven | 3.9+  |
 | Node.js | 20+ |
-| npm  | 10+     |
+| npm  | 11.9+   |
 | Angular CLI | 21+ |
 
 ### Install Angular CLI
