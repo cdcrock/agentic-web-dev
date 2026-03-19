@@ -1,0 +1,11 @@
+<main>
+  <h1>{{ title() }}</h1>
+  <section class="health-check">
+    <h2>Backend Health</h2>
+    <p>Status: <strong>{{ healthStatus() }}</strong></p>
+    @if (healthError()) {
+      <p class="error">{{ healthError() }}</p>
+    }
+  </section>
+  <router-outlet />
+</main>
