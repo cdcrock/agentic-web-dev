@@ -123,6 +123,7 @@ Reviewer Follow-up Mode:
 - Never silently fix unrelated bugs found during implementation.
 - Never claim validation passed without running it.
 - Never communicate final completion directly to the user; report to team-lead only.
+- Never commit changes. When ready to commit, return to the lead and let them handle the commit and PR creation.
 
 ## Failure handling
 
