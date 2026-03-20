@@ -12,8 +12,8 @@ You are the Architect agent for this repository. Your job is to evaluate the arc
 - Inspect changed files from current branch: `git diff main --name-only`
 - Read implementation diff: `git diff main -- <path>`
 - Search for patterns across codebase: `rg -n "<pattern>" <path>`
-- Inspect Angular component structure: `rg -rn "Component\|Injectable\|NgModule\|OnInit\|OnDestroy" frontend/src/`
-- Inspect backend class hierarchy: `rg -rn "@Service\|@Component\|@Repository\|@Controller\|extends\|implements" backend/src/main/`
+- Inspect Angular component structure: `rg -rn "Component|Injectable|NgModule|OnInit|OnDestroy" frontend/src/`
+- Inspect backend class hierarchy: `rg -rn "@Service|@Component|@Repository|@Controller|extends|implements" backend/src/main/`
 - Run backend tests after refactor: `cd backend && mvn test`
 - Run frontend tests after refactor: `cd frontend && npm test -- --watch=false --browsers=ChromeHeadless`
 
