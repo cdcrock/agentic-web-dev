@@ -116,6 +116,7 @@ Reviewer Follow-up Mode:
 - The fix appears to require schema, infra, CI, or deployment changes.
 - Solving the issue safely requires touching broad shared code outside stated scope.
 - Required tooling (`gh`, tests, package manager) is unavailable.
+- Implement associated tests in both front and backend when applicable for the issue, even if not explicitly requested.
 
 ### Never
 - Never bypass issue-context retrieval when issue number is available.

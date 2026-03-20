@@ -118,6 +118,7 @@ Issue Coverage:
 - Report concrete, reproducible findings with actionable fixes.
 - Include validation evidence and explicitly note unrun checks.
 - Keep scope to the delegated issue and touched areas.
+- Run perform proper regression testing for all behavior.
 
 ### Ask first
 - Handoff is missing issue number, acceptance criteria, or changed-file context.
