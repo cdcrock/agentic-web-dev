@@ -1,0 +1,81 @@
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 1.5rem;
+  background-color: #0f3460;
+  border-bottom: 1px solid #16213e;
+}
+
+.nav-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+}
+
+.nav-menu {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  background-color: #0f3460;
+  border-bottom: 1px solid #16213e;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.nav-item {
+  display: block;
+  padding: 0.875rem 1.5rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #16213e;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: #16213e;
+    color: #ffffff;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

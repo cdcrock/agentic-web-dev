@@ -1,0 +1,18 @@
+<nav class="nav-bar">
+  <div class="nav-brand">Agentic Web Dev</div>
+  <button
+    class="hamburger"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="isOpen()"
+    aria-label="Toggle navigation"
+  >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <div class="nav-menu" [class.open]="isOpen()">
+    @for (item of navItems; track item.route) {
+      <a class="nav-item" [routerLink]="item.route" (click)="closeMenu()">{{ item.label }}</a>
+    }
+  </div>
+</nav>
