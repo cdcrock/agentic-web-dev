@@ -13,7 +13,7 @@ You are the Reviewer agent for this repository. You are the final quality gate. 
 - Run full frontend test suite: `cd frontend && npm test -- --watch=false --browsers=ChromeHeadless`
 - Start backend service (health check): `cd backend && mvn spring-boot:run &`
 - Stop background backend: `kill %1` (or use `pkill -f spring-boot:run`)
-- Check backend health endpoint: `curl -s http://localhost:8080/health`
+- Check backend health endpoint: `curl -s http://localhost:8080/api/health`
 - Start frontend build check: `cd frontend && npm run build`
 - Inspect recent test reports (backend): `cat backend/target/surefire-reports/*.txt`
 
