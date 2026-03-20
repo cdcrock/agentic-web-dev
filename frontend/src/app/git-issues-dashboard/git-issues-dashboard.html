@@ -1,0 +1,61 @@
+<section class="issues-dashboard">
+  <h2>Git Issues</h2>
+
+  <div class="filters">
+    <label>
+      Repository
+      <select
+        data-testid="repository-filter"
+        [value]="selectedRepository()"
+        (change)="onRepositoryChange($event)"
+      >
+        <option value="all">All repositories</option>
+        @for (repository of repositories(); track repository) {
+          <option [value]="repository">{{ repository }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      Status
+      <select
+        data-testid="status-filter"
+        [value]="selectedStatus()"
+        (change)="onStatusChange($event)"
+      >
+        <option value="all">All statuses</option>
+        <option value="open">Open</option>
+        <option value="closed">Closed</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="issue-list">
+    @for (issue of filteredIssues(); track issue.id) {
+      <article
+        class="issue-card"
+        data-testid="issue-card"
+        role="button"
+        tabindex="0"
+        [attr.aria-expanded]="isExpanded(issue.id)"
+        (click)="toggleExpanded(issue.id)"
+        (keydown.enter)="toggleExpanded(issue.id)"
+        (keydown.space)="toggleExpanded(issue.id)"
+      >
+        <header>
+          <h3>{{ issue.title }}</h3>
+          <p>{{ issue.repository }} | {{ issue.status }}</p>
+        </header>
+
+        @if (isExpanded(issue.id)) {
+          <div class="issue-details">
+            <p data-testid="issue-number">Issue #{{ issue.number }}</p>
+            <p data-testid="issue-comments">Comments: {{ issue.comments }}</p>
+            <p data-testid="issue-labels">Labels: {{ issue.labels.join(', ') }}</p>
+            <a [href]="issue.url" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        }
+      </article>
+    }
+  </div>
+</section>

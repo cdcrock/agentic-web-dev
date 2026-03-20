@@ -17,7 +17,8 @@ export class NavMenu {
   protected readonly isOpen = signal(false);
 
   protected readonly navItems: NavItem[] = [
-    { label: 'Home', route: '/' }
+    { label: 'Home', route: '/' },
+    { label: 'Git Issues', route: '/git-issues' }
   ];
 
   toggleMenu(): void {
