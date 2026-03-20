@@ -1,0 +1,40 @@
+.issues-dashboard {
+  margin-top: 1rem;
+  width: min(920px, 100%);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-weight: 600;
+  }
+
+  select {
+    min-width: 220px;
+    padding: 0.5rem;
+  }
+}
+
+.issue-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.issue-card {
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  padding: 0.9rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.issue-details {
+  margin-top: 0.75rem;
+}

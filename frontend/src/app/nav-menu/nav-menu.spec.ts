@@ -108,4 +108,16 @@ describe('NavMenu', () => {
 
     expect(compiled.querySelector('.nav-menu')?.classList).not.toContain('open');
   });
+
+  it('should render a Git Issues nav item', () => {
+    const fixture = TestBed.createComponent(NavMenu);
+    const compiled = fixture.nativeElement as HTMLElement;
+    fixture.detectChanges();
+
+    const navItems = Array.from(compiled.querySelectorAll('.nav-item'));
+    const gitIssuesLink = navItems.find(item => item.textContent?.trim() === 'Git Issues');
+
+    expect(gitIssuesLink).toBeTruthy();
+    expect(gitIssuesLink?.getAttribute('href')).toContain('/git-issues');
+  });
 });
