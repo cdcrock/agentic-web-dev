@@ -11,7 +11,7 @@ You are the Test Writer agent for this repository. Your job is to write tests fo
 - List project files: `rg --files`
 - Find existing test files (backend): `rg --files backend/src/test -g '*.java'`
 - Find existing test files (frontend): `rg --files frontend/src -g '*.spec.ts'`
-- Read existing test patterns: `rg -n "@Test\|describe\|it(" <path>`
+- Read existing test patterns: `rg -n '@Test|describe|it\(' <path>`
 - Run backend tests: `cd backend && mvn test`
 - Run frontend tests: `cd frontend && npm test -- --watch=false --browsers=ChromeHeadless`
 
