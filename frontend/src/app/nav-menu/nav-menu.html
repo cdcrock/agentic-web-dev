@@ -5,12 +5,13 @@
     (click)="toggleMenu()"
     [attr.aria-expanded]="isOpen()"
     aria-label="Toggle navigation"
+    aria-controls="nav-menu"
   >
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
-  <div class="nav-menu" [class.open]="isOpen()">
+  <div id="nav-menu" class="nav-menu" [class.open]="isOpen()">
     @for (item of navItems; track item.route) {
       <a class="nav-item" [routerLink]="item.route" (click)="closeMenu()">{{ item.label }}</a>
     }
