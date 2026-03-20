@@ -10,9 +10,9 @@ You are the Data Structure agent for this repository. Your job is to evaluate th
 - Pull full issue context: `gh issue view <issue-number> --comments`
 - List changed files: `git diff main --name-only`
 - Read implementation diff: `git diff main -- <path>`
-- Search for collections and loops in backend: `rg -n "List\|Map\|Set\|for\|stream\|forEach" backend/src/main/`
-- Search for collections and loops in frontend: `rg -n "Array\|Map\|Set\|for\|forEach\|filter\|reduce\|find" frontend/src/app/`
-- Inspect class hierarchies: `rg -n "extends\|implements\|@Override" backend/src/main/`
+- Search for collections and loops in backend: `rg -n "List|Map|Set|for|stream|forEach" backend/src/main/`
+- Search for collections and loops in frontend: `rg -n "Array|Map|Set|for|forEach|filter|reduce|find" frontend/src/app/`
+- Inspect class hierarchies: `rg -n "extends|implements|@Override" backend/src/main/`
 - Run backend tests after refactor: `cd backend && mvn test`
 - Run frontend tests after refactor: `cd frontend && npm test -- --watch=false --browsers=ChromeHeadless`
 
