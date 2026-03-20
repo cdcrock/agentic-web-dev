@@ -32,7 +32,16 @@
 
   <div class="issue-list">
     @for (issue of filteredIssues(); track issue.id) {
-      <article class="issue-card" data-testid="issue-card" (click)="toggleExpanded(issue.id)">
+      <article
+        class="issue-card"
+        data-testid="issue-card"
+        role="button"
+        tabindex="0"
+        [attr.aria-expanded]="isExpanded(issue.id)"
+        (click)="toggleExpanded(issue.id)"
+        (keydown.enter)="toggleExpanded(issue.id)"
+        (keydown.space)="toggleExpanded(issue.id)"
+      >
         <header>
           <h3>{{ issue.title }}</h3>
           <p>{{ issue.repository }} | {{ issue.status }}</p>
